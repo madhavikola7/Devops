@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pythondemo
+  labels:
+    app: pythondemo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pythondemo
+  template:
+    metadata:
+      labels:
+        app: pythondemo
+    spec:
+      containers:
+      - name: pythondemo
+        image: madhavikola/pythondemo:v1
+        ports:
+        - containerPort: 8000
+
