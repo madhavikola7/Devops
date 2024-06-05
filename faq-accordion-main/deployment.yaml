@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: faqpage-deployment
+  labels:
+    app: faqpage
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: faqpage
+  template:
+    metadata:
+      labels:
+        app: faqpage
+    spec:
+      containers:
+      - name: faqpage
+        image: madhavikola/faqsite:v1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+
